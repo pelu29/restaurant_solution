@@ -1,0 +1,8 @@
+.content{
+    display: flex;
+}
+.barraNav{
+    height: 100vh;
+    max-width: 300px;
+    background-color: #333;
+}
