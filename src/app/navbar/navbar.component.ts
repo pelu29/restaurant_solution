@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',

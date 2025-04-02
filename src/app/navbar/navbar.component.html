@@ -1,10 +1,32 @@
-<div class="menu">
-    <div class="contenedor-img">
-        <img src="https://preview.redd.it/8uent1vp7xw11.jpg?width=823&format=pjpg&auto=webp&s=08774e4e1436f4359bf81f7b708d52e3437baa3f" alt="">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="https://preview.redd.it/8uent1vp7xw11.jpg?width=823&format=pjpg&auto=webp&s=08774e4e1436f4359bf81f7b708d52e3437baa3f"
+          alt="Logo" class="logo">
+      </a>
+  
+      <!-- Botón de menú en móviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Menú de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="navegar('mesas')">Mesas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="navegar('menu')">Panel worker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Más</a>
+          </li>
+        </ul>
+      </div>
     </div>
-
-    <div class="secciones">
-        <button (click)="navegar('mesas')">Inicio</button><br>
-        <button (click)="navegar('trabajadores')">Panel worker</button><br>
-    </div>
-</div>
+  </nav>

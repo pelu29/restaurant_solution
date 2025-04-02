@@ -1,3 +1,18 @@
-.contenedor-img img{
-    width:40%;
+.logo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+    /* Amarillo Bootstrap */
+}
+
+.nav-item:hover {
+    cursor: pointer;
 }
