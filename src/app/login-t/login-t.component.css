@@ -1,0 +1,20 @@
+/* Centrar el componente de login sin tanto espacio vertical */
+.container {
+    min-height: 60vh; /* Reduce la altura mínima para que no ocupe toda la pantalla */
+    padding-top: 30px; /* Ajusta el padding superior para reducir el espacio arriba */
+    padding-bottom: 30px; /* Ajusta el padding inferior para reducir el espacio abajo */
+  }
+  
+  /* Opcional: Reducción de márgenes de la tarjeta */
+  .card {
+    margin-top: 0; /* Elimina el margen superior */
+    margin-bottom: 0; /* Elimina el margen inferior */
+  }
+  
+  .card-header, .card-footer {
+    padding: 10px; /* Reduce el padding de la cabecera y pie de la tarjeta */
+  }
+  
+  .card-body {
+    padding: 15px; /* Reduce el padding del cuerpo de la tarjeta */
+  }

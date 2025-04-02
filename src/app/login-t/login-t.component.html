@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="card" style="width: 100%; max-width: 400px;">
+      <div class="card-header text-center">
+        <h4>Iniciar sesión - Trabajador</h4>
+      </div>
+      <div class="card-body">
+        <!-- Formulario de login -->
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Ingrese su correo electrónico"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Ingrese su contraseña"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <button (click)="navegar('trabajadores')" type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer text-center">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+  </div>
