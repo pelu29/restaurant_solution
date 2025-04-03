@@ -1,27 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';  // Importa CommonModule solo si es Standalone
 
 @Component({
   selector: 'app-trabajadores',
-  imports: [],
+  standalone: true,  // Esto es importante para el modo Standalone
+  imports: [CommonModule],  // Importa CommonModule para usar *ngFor
   templateUrl: './trabajadores.component.html',
-  styleUrl: './trabajadores.component.css'
+  styleUrls: ['./trabajadores.component.css']
 })
-export class TrabajadoresComponent implements OnInit{
-  data:any;
+export class TrabajadoresComponent implements OnInit {
+  // Cambiar 'any' por 'any[]' para indicar que se trata de un arreglo de objetos
+  data: any[] = [];  // Declarar como un arreglo vacío para evitar posibles errores
 
-  constructor(private http:HttpClient){}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    console.log(this.fetchData())
+    this.fetchData();  // Llamar a fetchData en ngOnInit
   }
 
-  fetchData(){
-    this.http.get("restaurant-api-gold.vercel.app/api/usuarios")
-    .subscribe(respuesta=>{
-      this.data = respuesta
-      console.log(this.data)
-    })
+  fetchData() {
+    // Especificar que se espera un arreglo de objetos con la respuesta
+    this.http.get<any[]>("https://restaurant-api-gold.vercel.app/api/pedidos")
+      .subscribe({
+        next: (respuesta) => {
+          this.data = respuesta;  // Asignar la respuesta a la variable `data`
+          console.log(this.data);  // Mostrar la respuesta en la consola
+        },
+        error: (err) => {
+          console.error('Error al obtener los pedidos:', err);  // Manejo de error
+        },
+        complete: () => {
+          console.log('La solicitud se completó exitosamente');  // Mensaje cuando la solicitud termine
+        }
+      });
   }
 }

@@ -1,49 +1,40 @@
 <div class="container">
-    <!-- Panel de trabajo -->
-    <div class="panel-header mb-4">
-      <h2>Panel de Trabajo - Trabajadores</h2>
-      <p>Revisa los pedidos asignados y su estado.</p>
-    </div>
+  <!-- Panel de trabajo -->
+  <div class="panel-header mb-4">
+    <h2>Panel de Trabajo - Trabajadores</h2>
+    <p>Revisa los pedidos asignados y su estado.</p>
+  </div>
 
-    <!-- Tabla de pedidos -->
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>ID Pedido</th>
-          <th>ID Plato</th>
-          <th>Mesa Asociada</th>
-          <th>Fecha</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>001</td>
-          <td>PLT123</td>
-          <td>Mesa 5</td>
-          <td>2025-04-01 12:00</td>
-          <td><span class="badge bg-warning">En cocina</span></td>
-        </tr>
-        <tr>
-          <td>002</td>
-          <td>PLT124</td>
-          <td>Mesa 7</td>
-          <td>2025-04-01 12:30</td>
-          <td><span class="badge bg-info">En camino</span></td>
-        </tr>
-        <tr>
-          <td>003</td>
-          <td>PLT125</td>
-          <td>Mesa 10</td>
-          <td>2025-04-01 13:00</td>
-          <td><span class="badge bg-success">Entregado</span></td>
-        </tr>
-        <tr>
-          <td>004</td>
-          <td>PLT126</td>
-          <td>Mesa 2</td>
-          <td>2025-04-01 13:30</td>
-          <td><span class="badge bg-danger">Cancelado</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Tabla de pedidos -->
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID Pedido</th>
+        <th>ID Plato</th>
+        <th>Mesa Asociada</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterar sobre los pedidos con *ngFor -->
+      <tr *ngFor="let pedido of data">
+        <td>{{ pedido.id_pedido }}</td>
+        <td>{{ pedido.id_plato }}</td>
+        <td>Mesa {{ pedido.id_mesa }}</td>
+        <td>{{ pedido.fecha | date: 'yyyy-MM-dd HH:mm' }}</td>
+        <td>
+          <span class="badge"
+                [ngClass]="{
+                  'bg-warning': pedido.estado === 'En Cocina',
+                  'bg-info': pedido.estado === 'En Camino',
+                  'bg-success': pedido.estado === 'Entregado',
+                  'bg-danger': pedido.estado === 'Cancelado'
+                }">
+            {{ pedido.estado }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
