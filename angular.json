@@ -5,6 +5,7 @@
   "projects": {
     "frontend": {
       "projectType": "application",
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -14,7 +15,7 @@
           "options": {
             "outputPath": "dist/frontend",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -44,25 +45,12 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "sourceMap": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
-              "sourceMap": true,
               "extractLicenses": false,
-              "vendorChunk": true,
-              "buildOptimizer": false
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
