@@ -2,115 +2,27 @@
     <h2 class="text-center mb-4">Menú del Restaurante</h2>
 
     <div class="row">
-        <!-- Sección de Categorías -->
+        <!-- Categorías -->
         <div class="col-md-3 categorias bg-white p-3 shadow rounded">
             <h4 class="text-center">Categorías</h4>
-            <button class="btn btn-primary w-100 my-2">Entradas</button>
-            <button class="btn btn-primary w-100 my-2">Platos Fuertes</button>
-            <button class="btn btn-primary w-100 my-2">Bebidas</button>
-            <button class="btn btn-primary w-100 my-2">Postres</button>
-            <button class="btn btn-primary w-100 my-2">Bebidas</button>
-            <button class="btn btn-primary w-100 my-2">Postres</button>
+            <button *ngFor="let cat of categorias" class="btn w-100 my-2"
+                [ngClass]="{ 'btn-primary': cat === categoriaSeleccionada, 'btn-outline-primary': cat !== categoriaSeleccionada }"
+                (click)="seleccionarCategoria(cat)">
+                {{ cat }}
+            </button>
         </div>
 
-        <!-- Sección de Menús -->
+        <!-- Platos filtrados -->
         <div class="col-md-9">
             <div class="row g-4">
-                <div class="col-12 col-sm-6 col-lg-4">
+                <div class="col-12 col-sm-6 col-lg-4" *ngFor="let plato of platos"
+                    [hidden]="plato.categoria !== categoriaSeleccionada">
                     <div class="card shadow-sm">
-                        <img src="https://i.ytimg.com/vi/sWXRJbGi6yQ/hq720.jpg" class="card-img-top" alt="Lomo Saltado">
+                        <img [src]="plato.imagen" class="card-img-top" [alt]="plato.nombre">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Lomo Saltado</h5>
-                            <p class="card-text text-success fw-bold">S/ 25.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://i.ytimg.com/vi/F1eKSg5aBtw/maxresdefault.jpg" class="card-img-top" alt="Tallarines Rojos">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Tallarines Rojos</h5>
-                            <p class="card-text text-success fw-bold">S/ 20.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://i.ytimg.com/vi/enxbUqDbq2g/maxresdefault.jpg" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Tallarines verdes</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://i.ytimg.com/vi/pUJD_FvAmQg/maxresdefault.jpg" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Seco de pollo</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://jameaperu.com/assets/images/estofado-de-pollo_800x534.webp" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Estofado</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://www.infobae.com/new-resizer/-_4smBja4GxT_2umpRGCdzMEdcQ=/arc-anglerfish-arc2-prod-infobae/public/6XMDYP5ZTNEN5LFFIGSY2XMCRA.jpg" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Locro</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://www.recetasnestle.cl/sites/default/files/srh_recipes/379d1ba605985c4bc3ea975cabacce13.jpg" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Ceviche</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://portal.andina.pe/EDPfotografia/Thumbnail/2014/12/01/000271793W.jpg" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Chanfainita</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card shadow-sm">
-                        <img src="https://comidaperuana.org/wp-content/uploads/2023/12/receta-de-arroz-con-pollo-peruano.jpg" class="card-img-top" alt="Arroz Chaufa">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Arroz con pollo</h5>
-                            <p class="card-text text-success fw-bold">S/ 22.00</p>
-                            <button class="btn btn-success">Comprar</button>
+                            <h5 class="card-title">{{ plato.nombre }}</h5>
+                            <p class="card-text text-success fw-bold">S/ {{ plato.precio.toFixed(2) }}</p>
+                            <button class="btn btn-success">Agregar</button>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,14 @@
-.carta:hover{
+.carta:hover {
     cursor: pointer;
     opacity: 0.74;
 }
+
+.nosotros p {
+    text-align: justify;
+}
+
+.nosotros h3 {
+    text-align: left;
+}
+
+
