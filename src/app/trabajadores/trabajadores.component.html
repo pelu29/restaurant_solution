@@ -17,22 +17,18 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Iterar sobre los pedidos con *ngFor -->
       <tr *ngFor="let pedido of data">
         <td>{{ pedido.id_pedido }}</td>
         <td>{{ pedido.id_plato }}</td>
-        <td>Mesa {{ pedido.id_mesa }}</td>
-        <td>{{ pedido.fecha | date: 'yyyy-MM-dd HH:mm' }}</td>
+        <td>Mesa {{ pedido.mesa_asociada }}</td>
+        <td>{{ pedido.nombre_plato }}</td>
         <td>
-          <span class="badge"
-                [ngClass]="{
-                  'bg-warning': pedido.estado === 'En Cocina',
-                  'bg-info': pedido.estado === 'En Camino',
-                  'bg-success': pedido.estado === 'Entregado',
-                  'bg-danger': pedido.estado === 'Cancelado'
-                }">
-            {{ pedido.estado }}
-          </span>
+          <select class="form-select" [(ngModel)]="pedido.estado" (change)="actualizarEstado(pedido)">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En Cocina">En Cocina</option>
+            <option value="En Camino">En Camino</option>
+            <option value="Entregado">Entregado</option>
+          </select>
         </td>
       </tr>
     </tbody>

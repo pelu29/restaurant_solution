@@ -12,19 +12,64 @@
             </button>
         </div>
 
-        <!-- Platos filtrados -->
+        <!-- Platos filtrados y Carrito -->
         <div class="col-md-9">
+            <!-- Carrito -->
+            <div class="bg-white p-3 shadow rounded mb-4">
+                <h4 class="text-center">Carrito</h4>
+                <div *ngIf="carrito.length === 0" class="text-center text-muted">
+                    No hay platos en el carrito.
+                </div>
+                <div *ngFor="let item of carrito" class="d-flex justify-content-between align-items-center">
+                    <p>{{ item.nombre_plato }} - S/ {{ item.precio }}</p>
+                    <button class="btn btn-danger btn-sm" (click)="eliminarDelCarrito(item)">Eliminar</button>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <strong>Total: S/ {{ totalCarrito() }}</strong>
+                    <button class="btn btn-primary" (click)="realizarPedido()">Pedir</button>
+                </div>
+                <div class="mt-2">
+                    <label for="mesa">Número de Mesa</label>
+                    <select id="mesa" class="form-select" [(ngModel)]="numeroMesa">
+                        <option value="1">Mesa 1</option>
+                        <option value="2">Mesa 2</option>
+                        <option value="3">Mesa 3</option>
+                        <option value="4">Mesa 4</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Platos filtrados -->
             <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-4" *ngFor="let plato of platos"
                     [hidden]="plato.categoria !== categoriaSeleccionada">
                     <div class="card shadow-sm">
-                        <img [src]="plato.imagen" class="card-img-top" [alt]="plato.nombre">
+                        <img [src]="plato.imagen" class="card-img-top" [alt]="plato.nombre_plato">
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{ plato.nombre }}</h5>
-                            <p class="card-text text-success fw-bold">S/ {{ plato.precio.toFixed(2) }}</p>
-                            <button class="btn btn-success">Agregar</button>
+                            <h5 class="card-title">{{ plato.nombre_plato }}</h5>
+                            <p class="card-text text-success fw-bold">S/ {{ plato.precio }}</p>
+                            <button class="btn btn-success" (click)="agregarAlCarrito(plato)">Agregar</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Boleta -->
+            <div *ngIf="boletaGenerada" class="mt-4 bg-white p-4 shadow rounded border">
+                <h4 class="text-center text-primary mb-3">Boleta de Pedido</h4>
+                <p class="text-muted"><strong>Mesa:</strong> {{ numeroMesa }}</p>
+                <ul class="list-unstyled">
+                    <li *ngFor="let item of carrito" class="d-flex justify-content-between mb-2">
+                        <span>{{ item.nombre_plato }}</span>
+                        <span>S/ {{ item.precio }}</span>
+                    </li>
+                </ul>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <strong>Total a Pagar: <span class="text-success">S/ {{ totalCarrito() }}</span></strong>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary btn-sm" (click)="confirmarPedido()">Confirmar Pedido</button>
                 </div>
             </div>
         </div>
