@@ -1,0 +1,77 @@
+<!-- Componente Ver Mis Pedidos -->
+<div class="container py-4">
+    <h2 class="text-center mb-4">Ver Mis Pedidos</h2>
+
+<!-- Formulario para ingresar número de mesa -->
+<div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="form-group">
+        <label for="numeroMesaInput" class="form-label fw-bold">Número de Mesa</label>
+        <input type="number" class="form-control" id="numeroMesaInput" [(ngModel)]="numeroMesa"
+          placeholder="Ingresa tu número de mesa">
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-primary px-4" (click)="recuperarPedido(numeroMesa)">Ver Pedido</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mostrar los pedidos de la mesa si existen -->
+  <div *ngIf="boletaGenerada" class="mt-5">
+    <h2 class="text-center mb-4 text-success">Pedidos para la Mesa {{ numeroMesa2 }}</h2>
+  
+    <div class="card shadow border-0 mx-auto" style="max-width: 600px;">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let pedido of carrito" class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <h5 class="mb-1">{{ pedido.nombre }}</h5>
+              <small class="text-muted">Precio total para este pedido: {{ pedido.cantidad }}</small>
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6">S/. {{ pedido.precio }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mensaje cuando no se encuentra la boleta -->
+  <div *ngIf="noPedidos" class="alert alert-warning text-center mt-4" role="alert">
+    No hay pedidos para esta mesa.
+  </div>
+    
+    <!-- Información adicional o explicación -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-center text-muted">¿No encuentras tu pedido?</h3>
+            <p class="text-center text-muted">Si ingresaste el número de mesa y no encuentras tu pedido, asegúrate de
+                haberlo confirmado correctamente. Si el problema persiste, por favor acércate a nuestro personal.</p>
+        </div>
+    </div>
+
+    <!-- Información de contacto o ayuda -->
+    <div class="row mt-5">
+        <div class="col-md-6 mx-auto">
+            <h4 class="text-center text-primary">Contáctanos</h4>
+            <p class="text-center">Si tienes alguna pregunta sobre tu pedido o necesitas asistencia adicional, no dudes
+                en comunicarte con nuestro equipo. ¡Estamos aquí para ayudarte!</p>
+            <div class="text-center">
+                <a href="mailto:soporte@restaurante.com" class="btn btn-outline-primary">Enviar un correo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de pedidos recientes -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-center">Pedidos Recientes</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Pedido #1 - Mesa 5</li>
+                <li class="list-group-item">Pedido #2 - Mesa 3</li>
+                <li class="list-group-item">Pedido #3 - Mesa 7</li>
+                <li class="list-group-item">Pedido #4 - Mesa 2</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
