@@ -14,5 +14,4 @@ export class MesasComponent {
   navegar(ruta:string){
     this.router.navigate([`/${ruta}`])
   }
-
 }

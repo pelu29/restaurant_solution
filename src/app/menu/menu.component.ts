@@ -81,7 +81,7 @@ export class MenuComponent implements OnInit {
       console.log(this.platos);
     });
 
-    
+
   }
 
   seleccionarCategoria(cat: string) {
@@ -150,10 +150,8 @@ export class MenuComponent implements OnInit {
 
     // Guardamos la boleta en el localStorage bajo la clave 'pedido-mesa-{numeroMesa}'
     localStorage.setItem(`pedido-mesa-${this.numeroMesa}`, JSON.stringify(boleta));
-
     // Mostrar mensaje de confirmación (opcional)
     alert('Pedido confirmado y guardado');
   }
-
 
 }

@@ -13,4 +13,8 @@ export class NavbarComponent {
   navegar(ruta:string){
     this.router.navigate([`/${ruta}`])
   }
+
+  eliminar(){
+    localStorage.clear();
+  }
 }
