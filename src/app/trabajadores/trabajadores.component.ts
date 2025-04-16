@@ -19,7 +19,6 @@ export class TrabajadoresComponent implements OnInit {
     // Recuperamos los pedidos para mostrarlos en la tabla
     this.api.getPedidos().subscribe((datos) => {
       this.data = datos;
-      console.log(this.data);
     });
   }
 

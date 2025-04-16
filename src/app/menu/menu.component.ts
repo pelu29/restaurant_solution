@@ -78,7 +78,6 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.api.getPlatos().subscribe((data) => {
       this.platos = data;
-      console.log(this.platos);
     });
 
 
@@ -140,18 +139,6 @@ export class MenuComponent implements OnInit {
         alert('Hubo un problema al realizar el pedido.');
       }
     );
-
-    // Creamos el objeto con la información que queremos guardar
-    const boleta = {
-      numeroMesa: this.numeroMesa,
-      carrito: this.carrito,
-      total: this.totalCarrito()
-    };
-
-    // Guardamos la boleta en el localStorage bajo la clave 'pedido-mesa-{numeroMesa}'
-    localStorage.setItem(`pedido-mesa-${this.numeroMesa}`, JSON.stringify(boleta));
-    // Mostrar mensaje de confirmación (opcional)
-    alert('Pedido confirmado y guardado');
   }
 
 }

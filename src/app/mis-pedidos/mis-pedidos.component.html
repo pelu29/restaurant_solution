@@ -17,18 +17,18 @@
   </div>
   
   <!-- Mostrar los pedidos de la mesa si existen -->
-  <div *ngIf="boletaGenerada" class="mt-5">
-    <h2 class="text-center mb-4 text-success">Pedidos para la Mesa {{ numeroMesa2 }}</h2>
+  <div *ngIf="data.length > 0 " class="mt-5">
+    <h2 class="text-center mb-4 text-success">Pedidos para la Mesa {{ numeroMesa }}</h2>
   
     <div class="card shadow border-0 mx-auto" style="max-width: 600px;">
       <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let pedido of carrito" class="list-group-item d-flex justify-content-between align-items-center">
+        <ul *ngFor="let elemento of data" class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
             <div>
-              <h5 class="mb-1">{{ pedido.nombre }}</h5>
-              <small class="text-muted">Precio total para este pedido: {{ pedido.cantidad }}</small>
+              <h5 class="mb-1">{{ elemento.nombre_plato }}</h5>
+              <small class="text-muted">Estado para este pedido: {{ elemento.estado }}</small>
             </div>
-            <span class="badge bg-primary rounded-pill fs-6">S/. {{ pedido.precio }}</span>
+            <span class="badge bg-primary rounded-pill fs-6">S/. {{ elemento.precio }}</span>
           </li>
         </ul>
       </div>
@@ -36,7 +36,7 @@
   </div>
   
   <!-- Mensaje cuando no se encuentra la boleta -->
-  <div *ngIf="noPedidos" class="alert alert-warning text-center mt-4" role="alert">
+  <div *ngIf="data.length === 0 || data.length === undefined" class="alert alert-warning text-center mt-4" role="alert">
     No hay pedidos para esta mesa.
   </div>
     

@@ -5,13 +5,15 @@
       </div>
       <div class="card-body">
         <!-- Formulario de login -->
-        <form>
+        <form (ngSubmit)="iniciarSesion()">
           <div class="mb-3">
             <label for="email" class="form-label">Correo electrónico</label>
             <input
               type="email"
               class="form-control"
               id="email"
+              name="email"
+              [(ngModel)]="correo"
               placeholder="Ingrese su correo electrónico"
               required
             />
@@ -22,12 +24,14 @@
               type="password"
               class="form-control"
               id="password"
+              name="password"
+              [(ngModel)]="contrasena"
               placeholder="Ingrese su contraseña"
               required
             />
           </div>
           <div class="mb-3">
-            <button (click)="navegar('trabajadores')" type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
           </div>
         </form>
       </div>

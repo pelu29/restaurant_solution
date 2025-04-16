@@ -38,6 +38,26 @@
                     </select>
                 </div>
             </div>
+
+            <!-- Boleta -->
+            <div *ngIf="boletaGenerada" class="mt-4 bg-white p-4 shadow rounded border">
+                <h4 class="text-center text-primary mb-3">Boleta de Pedido</h4>
+                <p class="text-muted"><strong>Mesa:</strong> {{ numeroMesa }}</p>
+                <ul class="list-unstyled">
+                    <li *ngFor="let item of carrito" class="d-flex justify-content-between mb-2">
+                        <span>{{ item.nombre_plato }}</span>
+                        <span>S/ {{ item.precio }}</span>
+                    </li>
+                </ul>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <strong>Total a Pagar: <span class="text-success">S/ {{ totalCarrito() }}</span></strong>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary btn-sm" (click)="confirmarPedido()">Confirmar Pedido</button>
+                </div>
+            </div><br><br>
+
             <!-- Platos filtrados -->
             <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-4" *ngFor="let plato of platos; let i = index"
@@ -52,25 +72,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Boleta -->
-        <div *ngIf="boletaGenerada" class="mt-4 bg-white p-4 shadow rounded border">
-            <h4 class="text-center text-primary mb-3">Boleta de Pedido</h4>
-            <p class="text-muted"><strong>Mesa:</strong> {{ numeroMesa }}</p>
-            <ul class="list-unstyled">
-                <li *ngFor="let item of carrito" class="d-flex justify-content-between mb-2">
-                    <span>{{ item.nombre_plato }}</span>
-                    <span>S/ {{ item.precio }}</span>
-                </li>
-            </ul>
-            <hr>
-            <div class="d-flex justify-content-between align-items-center">
-                <strong>Total a Pagar: <span class="text-success">S/ {{ totalCarrito() }}</span></strong>
-            </div>
-            <div class="text-center mt-3">
-                <button class="btn btn-primary btn-sm" (click)="confirmarPedido()">Confirmar Pedido</button>
             </div>
         </div>
     </div>
