@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RestaurantApiService } from '../restaurant-api.service';
+import { RestaurantApiService } from '../../services/restaurant-api.service';
 import { NgFor } from '@angular/common';
 
 @Component({

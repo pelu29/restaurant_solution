@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { MesasComponent } from './mesas/mesas.component';
-import { MenuComponent } from './menu/menu.component';
-import { TrabajadoresComponent } from './trabajadores/trabajadores.component';
-import { LoginTComponent } from './login-t/login-t.component';
-import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
-import { authGuard } from './auth.guard';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MesasComponent } from './components/mesas/mesas.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { LoginTComponent } from './components/login-t/login-t.component';
+import { MisPedidosComponent } from './components/mis-pedidos/mis-pedidos.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'mesas', pathMatch: 'full' },

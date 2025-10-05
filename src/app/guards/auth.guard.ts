@@ -1,5 +1,5 @@
 import { CanActivateFn } from '@angular/router';
-import { RestaurantApiService } from './restaurant-api.service';
+import { RestaurantApiService } from '../services/restaurant-api.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const token = localStorage.getItem('token');

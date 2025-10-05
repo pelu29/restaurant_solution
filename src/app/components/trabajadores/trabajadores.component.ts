@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantApiService } from '../restaurant-api.service';
+import { RestaurantApiService } from '../../services/restaurant-api.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 

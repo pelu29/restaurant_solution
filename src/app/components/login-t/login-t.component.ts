@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestaurantApiService } from '../restaurant-api.service';
+import { RestaurantApiService } from '../../services/restaurant-api.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({

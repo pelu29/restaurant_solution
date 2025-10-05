@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common'; // Añadir esta importación
 import { HttpClient } from '@angular/common/http';
-import { RestaurantApiService } from '../restaurant-api.service';
+import { RestaurantApiService } from '../../services/restaurant-api.service';
 
 @Component({
   selector: 'app-menu',
